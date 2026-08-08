@@ -1,68 +1,99 @@
-# Ordexa Lite — Free Next.js Admin Dashboard Starter
+<p align="center">
+  <img src=".github/assets/lite-banner-1280x640.png" alt="Ordexa Lite — free Next.js admin dashboard starter" width="100%" />
+</p>
 
-The free, MIT-licensed core of [Ordexa](https://gumroad.com/l/ordexa): a
-production-quality admin dashboard starter built with **Next.js 16 (App
-Router)**, **TypeScript**, **Tailwind CSS v4**, and **shadcn/ui** — minimal,
-data-dense, with flawless dark/light mode.
+<h1 align="center">Ordexa Lite</h1>
 
-![Stack](https://img.shields.io/badge/Next.js-16-black) ![Tailwind](https://img.shields.io/badge/Tailwind_CSS-v4-38bdf8) ![License](https://img.shields.io/badge/license-MIT-green)
+<p align="center">
+  <strong>The free Next.js admin starter that feels paid.</strong><br />
+  Production-quality dashboard, charts, typed data table, ⌘K menu, auth, and flawless dark mode — MIT-licensed.
+</p>
 
-## What's inside (free, forever)
+<p align="center">
+  <a href="https://gumroad.com/l/ordexa"><img src="https://img.shields.io/badge/Ordexa_Pro-get_the_full_template-5b5bd6" alt="Get Ordexa Pro" /></a>
+  <img src="https://img.shields.io/badge/Next.js-16-black" alt="Next.js 16" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-v4-38bdf8" alt="Tailwind CSS v4" />
+  <img src="https://img.shields.io/badge/TypeScript-strict-3178c6" alt="TypeScript strict" />
+  <img src="https://img.shields.io/badge/license-MIT-green" alt="MIT license" />
+</p>
 
-- **E-commerce dashboard** — KPI stat cards with trend indicators, a revenue
-  area chart with 7/30/90-day range switching, and a recent-orders table.
-- **Configuration-driven navigation** — the sidebar *and* the ⌘K command
-  menu render from one typed config (`config/menu.ts`). No hardcoded menus.
-- **Advanced layout** — collapsible sidebar (icon mode, `⌘/Ctrl+B`), mobile
-  drawer, sticky glassmorphism header, route-aware active states.
-- **Generic `DataTable`** — strictly typed on TanStack Table v8 with sorting
-  wired up; reusable for any entity.
-- **Colorblind-validated chart colors**, tuned separately for light & dark.
-- **Auth starter** — a polished `/login` with react-hook-form + Zod.
-- **Resilience** — styled 404, error boundaries, streaming skeletons.
-- **Strict TypeScript + JSDoc everywhere**, zero TODOs.
+---
+
+## Why this one?
+
+Most free admin starters are either a screenshot with half the code missing, or
+a decade of jQuery in a trench coat. Ordexa Lite is the **actual core of a
+commercial template** — same architecture, same code quality, no strings:
+
+- ⚡ **Current stack, no legacy** — Next.js 16 App Router, React 19, Tailwind
+  CSS v4 (CSS-token theming), shadcn/ui, TanStack Table v8.
+- 🧭 **Config-driven navigation** — the sidebar *and* the ⌘K command menu
+  render from one typed config file. Add a page, add one entry, done.
+- 📊 **Charts you can trust** — the palette is colorblind-validated (CVD ΔE
+  checks on adjacent pairs), tuned separately for light and dark.
+- 🧱 **A DataTable worth reusing** — strictly typed generics on TanStack v8,
+  sorting wired up, drop in your own columns.
+- 🌗 **Dark mode done right** — class-based, flash-free, every token designed
+  for both themes.
+- 🛡️ **Strict TypeScript + JSDoc on everything**, zero TODOs, and mock data
+  whose types double as your API contract.
+
+| Light | Dark |
+| --- | --- |
+| ![Dashboard, light theme](.github/assets/lite-light.png) | ![Dashboard, dark theme](.github/assets/lite-dark.png) |
 
 ## Quickstart
 
 ```bash
+git clone https://github.com/tovrr/ordexa-lite
+cd ordexa-lite
 npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open [http://localhost:3000](http://localhost:3000). No env vars, no external
+services — it just runs.
 
 ## Customizing
 
-- **Branding**: `config/site.ts` (name, description, links).
-- **Navigation**: `config/menu.ts` — plain links, badges, and collapsible
-  groups; the sidebar and ⌘K menu update automatically.
-- **Theming**: every design token lives in `app/globals.css` (Tailwind v4 —
-  no config file). Change `--primary` (and `--ring`/`--sidebar-primary`) to
-  rebrand; `--radius` for corner rounding.
-- **Adding a page**: create `app/(dashboard)/your-page/page.tsx`, point a
-  menu entry at it. Active states and the command menu pick it up.
-- **Real data**: `lib/mock-data.ts` exports the demo data *and its types* —
-  replace the data with your API calls and keep the types as your contract.
-
-## Ordexa Pro
-
-Lite is the core. The full template adds, on the same architecture:
-
-| Lite (this repo) | [Ordexa Pro](https://gumroad.com/l/ordexa) |
+| Change | Where |
 | --- | --- |
-| E-commerce dashboard | + SaaS dashboard & full Analytics page |
-| Recent-orders table (sorting) | + Search, faceted filters, column toggle, pagination |
-| — | + Orders / Products / Customers management pages |
-| Login page | + Register, forgot & reset password |
-| — | + Settings (forms cookbook), Pricing, Invoice, Profile |
-| One brand color | + 4 switchable brand presets |
-| LTR | + Full RTL with a live toggle |
+| Branding (name, links) | `config/site.ts` |
+| Navigation & ⌘K menu | `config/menu.ts` — typed links, badges, collapsible groups |
+| Colors, radius, charts | `app/globals.css` — every token, Tailwind v4, no config file |
+| Demo data → your API | `lib/mock-data.ts` — keep the exported types as your contract |
+| New page | Create `app/(dashboard)/your-page/page.tsx`, add one menu entry |
 
-**[Get Ordexa Pro →](https://gumroad.com/l/ordexa)**
+## Lite vs. Pro — the smart-choice table
+
+Lite is genuinely useful on its own. When your project grows past one
+dashboard, [**Ordexa Pro**](https://gumroad.com/l/ordexa) is the same
+architecture with the rest of the app already built — buying it is cheaper
+than one afternoon of your time:
+
+| | Lite (free) | [Pro](https://gumroad.com/l/ordexa) |
+| --- | :-: | :-: |
+| E-commerce dashboard | ✅ | ✅ |
+| SaaS dashboard + Analytics page | — | ✅ |
+| Orders / Products / Customers management | — | ✅ |
+| DataTable: search, faceted filters, pagination, column toggle | — | ✅ |
+| Auth: register, forgot & reset password | login only | ✅ |
+| Settings (react-hook-form + Zod cookbook) | — | ✅ |
+| Pricing, printable invoice, profile pages | — | ✅ |
+| 4 switchable brand presets | — | ✅ |
+| Full RTL with live toggle | — | ✅ |
+
+<p align="center">
+  <a href="https://gumroad.com/l/ordexa"><strong>Get Ordexa Pro →</strong></a>
+</p>
+
+## Support the project
+
+If Lite saves you time, **star the repo** ⭐ — it's how other developers find
+it — and tell us what you build. Issues and suggestions welcome.
 
 ## License
 
 MIT — free for personal and commercial use. See [LICENSE.md](./LICENSE.md).
-
 Built on Next.js, React, Tailwind CSS, Radix UI, shadcn/ui, TanStack Table,
 Recharts, react-hook-form, Zod, next-themes, and Lucide — all MIT.
