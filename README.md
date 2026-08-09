@@ -10,6 +10,7 @@
 </p>
 
 <p align="center">
+  <a href="https://ordexa-lite.netlify.app"><img src="https://img.shields.io/badge/Live_Demo-ordexa--lite.netlify.app-00c7b7" alt="Live Demo" /></a>
   <a href="https://gumroad.com/l/ordexa"><img src="https://img.shields.io/badge/Ordexa_Pro-get_the_full_template-5b5bd6" alt="Get Ordexa Pro" /></a>
   <img src="https://img.shields.io/badge/Next.js-16-black" alt="Next.js 16" />
   <img src="https://img.shields.io/badge/Tailwind_CSS-v4-38bdf8" alt="Tailwind CSS v4" />

@@ -27,7 +27,7 @@ export const siteConfig: SiteConfig = {
   name: "Ordexa Lite",
   description:
     "Free admin dashboard starter built with Next.js, Tailwind CSS v4, and shadcn/ui — the open core of the Ordexa Pro template.",
-  url: "https://example.com",
+  url: "https://ordexa-lite.netlify.app",
   links: {
     repo: "https://github.com/tovrr/ordexa-lite",
     pro: "https://gumroad.com/l/ordexa",
