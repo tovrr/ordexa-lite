@@ -11,7 +11,7 @@
 
 <p align="center">
   <a href="https://ordexa-lite.netlify.app"><img src="https://img.shields.io/badge/Live_Demo-ordexa--lite.netlify.app-00c7b7" alt="Live Demo" /></a>
-  <a href="https://gumroad.com/l/ordexa"><img src="https://img.shields.io/badge/Ordexa_Pro-get_the_full_template-5b5bd6" alt="Get Ordexa Pro" /></a>
+  <a href="https://devforge.systems/products/ordexa"><img src="https://img.shields.io/badge/Ordexa_Pro-get_the_full_template-5b5bd6" alt="Get Ordexa Pro" /></a>
   <img src="https://img.shields.io/badge/Next.js-16-black" alt="Next.js 16" />
   <img src="https://img.shields.io/badge/Tailwind_CSS-v4-38bdf8" alt="Tailwind CSS v4" />
   <img src="https://img.shields.io/badge/TypeScript-strict-3178c6" alt="TypeScript strict" />
@@ -68,11 +68,11 @@ services — it just runs.
 ## Lite vs. Pro — the smart-choice table
 
 Lite is genuinely useful on its own. When your project grows past one
-dashboard, [**Ordexa Pro**](https://gumroad.com/l/ordexa) is the same
+dashboard, [**Ordexa Pro**](https://devforge.systems/products/ordexa) is the same
 architecture with the rest of the app already built — buying it is cheaper
 than one afternoon of your time:
 
-| | Lite (free) | [Pro](https://gumroad.com/l/ordexa) |
+| | Lite (free) | [Pro](https://devforge.systems/products/ordexa) |
 | --- | :-: | :-: |
 | E-commerce dashboard | ✅ | ✅ |
 | SaaS dashboard + Analytics page | — | ✅ |
@@ -85,7 +85,7 @@ than one afternoon of your time:
 | Full RTL with live toggle | — | ✅ |
 
 <p align="center">
-  <a href="https://gumroad.com/l/ordexa"><strong>Get Ordexa Pro →</strong></a>
+  <a href="https://devforge.systems/products/ordexa"><strong>Get Ordexa Pro →</strong></a>
 </p>
 
 ## Support the project
