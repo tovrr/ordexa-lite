@@ -1,0 +1,51 @@
+# Minimal CI. Written 2026-09-09 because this repo had NO CI at all, which meant:
+#   - six Dependabot PRs sat unevaluable, and the daily digest could only mark them "[none]"
+#   - `npm run lint` had been failing on main for weeks with nothing to report it
+#   - evidence had to be produced by hand (root-config scripts/ops/pr-evidence.sh)
+#
+# `build` is the gate. It passes on main today, so a red build means the PR broke something.
+#
+# `lint` is ADVISORY on purpose, and the job name says so. It currently fails on main
+# independently of any PR: this repo pins typescript ^7, while the newest published
+# typescript-eslint (8.70.0) still declares peerDependencies.typescript ">=4.8.4 <6.1.0" —
+# no released version supports TS 7. Making it blocking today would paint every PR red from
+# the first run, which is how a check stops being read. Making it invisible would leave the
+# breakage unreported, which is the situation this file exists to end.
+#
+# WHEN typescript-eslint supports TS 7 (or typescript is pinned back to ^6): delete the
+# continue-on-error line below and drop "(advisory...)" from the job name. Tracked as kanban
+# t_9778dac9.
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+
+  lint:
+    name: lint (advisory — blocked by TS 7, kanban t_9778dac9)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
