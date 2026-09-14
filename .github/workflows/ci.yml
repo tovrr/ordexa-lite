@@ -3,18 +3,19 @@
 #   - `npm run lint` had been failing on main for weeks with nothing to report it
 #   - evidence had to be produced by hand (root-config scripts/ops/pr-evidence.sh)
 #
-# `build` is the gate. It passes on main today, so a red build means the PR broke something.
+# `build` and `lint` are both blocking gates.
 #
-# `lint` is ADVISORY on purpose, and the job name says so. It currently fails on main
-# independently of any PR: this repo pins typescript ^7, while the newest published
-# typescript-eslint (8.70.0) still declares peerDependencies.typescript ">=4.8.4 <6.1.0" —
-# no released version supports TS 7. Making it blocking today would paint every PR red from
-# the first run, which is how a check stops being read. Making it invisible would leave the
-# breakage unreported, which is the situation this file exists to end.
-#
-# WHEN typescript-eslint supports TS 7 (or typescript is pinned back to ^6): delete the
-# continue-on-error line below and drop "(advisory...)" from the job name. Tracked as kanban
-# t_9778dac9.
+# 2026-09-14 (kanban t_9778dac9): lint is green again. It was broken by two independent,
+# unrelated causes that had both accumulated silently because there was no CI to catch them:
+#   1. typescript was pinned to ^7, but no published typescript-eslint (as of 8.70.0) supports
+#      TS 7 (peerDependencies caps at <6.1.0). Fixed by pinning typescript to ^6.0.3, the
+#      newest 6.x release, still inside that range.
+#   2. A separate Dependabot PR bumped eslint 9 -> 10 and merged on "build passes" alone
+#      (lint was already broken for reason 1, so nobody saw it break lint too). eslint-plugin-react
+#      7.37.5, bundled transitively by eslint-config-next, only supports eslint up to ^9.7 and
+#      crashes under ESLint 10's flat-config API. Fixed by pinning eslint back to ^9.39.5.
+# Revisit both pins when typescript-eslint publishes TS 7 support and eslint-plugin-react
+# publishes ESLint 10 support, respectively.
 name: CI
 
 on:
@@ -37,10 +38,9 @@ jobs:
       - run: npm run build
 
   lint:
-    name: lint (advisory — blocked by TS 7, kanban t_9778dac9)
+    name: lint
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
