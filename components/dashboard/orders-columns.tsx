@@ -1,6 +1,6 @@
 "use client";
 
-import { type ColumnDef } from "@tanstack/react-table";
+import { type LegacyColumnDef as ColumnDef } from "@tanstack/react-table/legacy";
 import { ArrowUpDown, Copy, Eye, MoreHorizontal, Undo2 } from "lucide-react";
 
 import type { Order, OrderStatus } from "@/lib/mock-data";

@@ -1,14 +1,13 @@
 "use client";
 
 import * as React from "react";
+import { flexRender, type RowData, type SortingState } from "@tanstack/react-table";
 import {
-  flexRender,
   getCoreRowModel,
   getSortedRowModel,
-  useReactTable,
-  type ColumnDef,
-  type SortingState,
-} from "@tanstack/react-table";
+  useLegacyTable as useReactTable,
+  type LegacyColumnDef as ColumnDef,
+} from "@tanstack/react-table/legacy";
 
 import {
   Table,
@@ -20,7 +19,7 @@ import {
 } from "@/components/ui/table";
 
 /** Props for the generic {@link DataTable}. */
-export interface DataTableProps<TData, TValue> {
+export interface DataTableProps<TData extends RowData, TValue> {
   /** TanStack column definitions — see `components/dashboard/orders-columns.tsx`. */
   columns: ColumnDef<TData, TValue>[];
   /** Row data. Each entry is passed to the column `cell` renderers. */
@@ -43,7 +42,7 @@ export interface DataTableProps<TData, TValue> {
  * composable faceted filters, column visibility, and pagination as opt-in
  * props — see the Pro links in the sidebar.
  */
-export function DataTable<TData, TValue>({
+export function DataTable<TData extends RowData, TValue>({
   columns,
   data,
   emptyMessage = "No results.",
@@ -52,11 +51,11 @@ export function DataTable<TData, TValue>({
 
   const table = useReactTable({
     data,
-    columns,
+    columns: columns as ColumnDef<TData, unknown>[],
     state: { sorting },
     onSortingChange: setSorting,
-    getCoreRowModel: getCoreRowModel(),
-    getSortedRowModel: getSortedRowModel(),
+    getCoreRowModel: getCoreRowModel<TData>(),
+    getSortedRowModel: getSortedRowModel<TData>(),
   });
 
   return (
