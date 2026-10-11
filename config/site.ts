@@ -23,6 +23,13 @@ export interface SiteConfig {
   };
 }
 
+/**
+ * Ordexa Pro store page (Stripe checkout). Single source for every "get Pro"
+ * link in the template; `.github/FUNDING.yml` and the README repeat this URL
+ * because they are not TypeScript, so update them together.
+ */
+const PRO_STORE_URL = "https://devforge.systems/products/ordexa?utm_source=ordexa-lite";
+
 export const siteConfig: SiteConfig = {
   name: "Ordexa Lite",
   description:
@@ -30,6 +37,6 @@ export const siteConfig: SiteConfig = {
   url: "https://ordexa-lite.netlify.app",
   links: {
     repo: "https://github.com/tovrr/ordexa-lite",
-    pro: "https://gumroad.com/l/ordexa",
+    pro: PRO_STORE_URL,
   },
 };
